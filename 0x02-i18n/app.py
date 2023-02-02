@@ -78,4 +78,3 @@ def get_timezone() -> str:
 
 if __name__ == '__main__':
     app.run()
-
