@@ -29,7 +29,7 @@ def hello():
 
 @babel.localeselector
 def get_locale():
-    """ 
+    """
     a function to determine the best match with the supported languages
     detect if the incoming request contains locale argument and ifs
     value is a supported locale, return it.
