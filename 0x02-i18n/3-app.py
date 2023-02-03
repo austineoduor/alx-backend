@@ -21,7 +21,7 @@ babel = Babel(app)
 
 @app.route('/')
 def hello():
-    """ render a basic html file 
+    """ render a basic html file for test
     """
     return render_template('3-index.html')
 
@@ -36,5 +36,4 @@ def get_locale():
 
 
 if __name__ == '__main__':
-    '''entry point for the program'''
     app.run()
