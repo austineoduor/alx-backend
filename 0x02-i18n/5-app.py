@@ -49,7 +49,7 @@ def hello():
     return render_template('5-index.html', login=login)
 
 
-'''@babel.localeselector'''
+@babel.localeselector
 def get_locale():
     """ a function to determine the best match with the supported languages """
     lg = request.args.get('locale')
@@ -58,7 +58,7 @@ def get_locale():
     if (g.get('user') and g.user.get("locale", None)
             and g.user["locale"] in app.config['LANGUAGES']):
         return g.user["locale"]
-    return Bable(app.config['LANGUAGES'], locale_selector=get_locale)
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '__main__':
