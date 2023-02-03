@@ -28,8 +28,11 @@ def hello():
 
 @babel.localeselector
 def get_locale():
-    """ a function to determine the best match with the supported
+    """
+    a function to determine the best match with the supported
     languages
+    Use the _ or gettext function to parametrize your templates.
+    Use the message IDs home_title and home_header.
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
     '''return Babel(app, locale_select=get_locale)'''

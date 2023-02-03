@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-""" a basic flask app"""
+"""
+a basic flask app
+"""
 from flask import Flask, g, render_template, request
 from flask_babel import Babel, _
 
@@ -7,7 +9,9 @@ app = Flask(__name__)
 
 
 class Config(object):
-    """ Config class for Babel object """
+    """
+    Config class for Babel object
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -25,7 +29,9 @@ users = {
 
 @app.before_request
 def before_request():
-    """ function to determine if a user is logged in, and the language """
+    """
+    function to determine if a user is logged in, and the language
+    """
     id = request.args.get('login_as')
     d_user = get_user(id)
     if d_user:
@@ -33,7 +39,9 @@ def before_request():
 
 
 def get_user(id):
-    """ returns a user dictionary or None """
+    """
+    returns a user dictionary or None
+    """
     if id and int(id) in users:
         return users[int(id)]
     return None
@@ -41,7 +49,9 @@ def get_user(id):
 
 @app.route('/')
 def hello():
-    """ render a basic html file """
+    """
+    render a basic html file
+    """
     login = False
     if g.get('user') is not None:
         login = True
@@ -51,7 +61,9 @@ def hello():
 
 @babel.localeselector
 def get_locale():
-    """ a function to determine the best match with the supported languages """
+    """
+    a function to determine the best match with the supported languages
+    """
     lg = request.args.get('locale')
     if lg in app.config['LANGUAGES']:
         return lg

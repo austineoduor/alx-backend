@@ -51,7 +51,10 @@ def hello():
 
 @babel.localeselector
 def get_locale():
-    """ a function to determine the best match with the supported languages """
+    """
+    a function to determine the best match with the supported
+    languages
+    """
     lg = request.args.get('locale')
     if lg in app.config['LANGUAGES']:
         return lg
