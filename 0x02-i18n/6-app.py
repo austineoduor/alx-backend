@@ -58,7 +58,7 @@ def get_locale():
     if (g.get('user') and g.user.get("locale", None)
             and g.user["locale"] in app.config['LANGUAGES']):
         return g.user["locale"]
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return  Babel(app.config['LANGUAGES'], locale_selector=get_locale)
 
 
 if __name__ == '__main__':

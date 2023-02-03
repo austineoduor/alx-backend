@@ -23,14 +23,14 @@ def hello():
     return render_template('4-index.html')
 
 
-@babel.localeselector
+'''@babel.localeselector'''
 def get_locale():
     """ a function to determine the best match with the supported languages """
     if request.full_path.split('/')[1][:8] == "?locale=":
         lg = request.full_path.split('/')[1][8:]
         if lg in app.config['LANGUAGES']:
             return lg
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return Babel(app, locale_selector=get_locale)
 
 
 if __name__ == '__main__':
