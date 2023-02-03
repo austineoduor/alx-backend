@@ -25,7 +25,9 @@ def hello():
 
 @babel.localeselector
 def get_locale():
-    """ a function to determine the best match with the supported languages """
+    """ a function to determine the best match with the supported
+    languages
+    """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
     '''return Babel(app, locale_select=get_locale)'''
 
