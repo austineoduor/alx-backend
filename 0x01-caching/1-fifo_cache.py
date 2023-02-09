@@ -15,7 +15,7 @@ class FIFOCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
-        """ 
+        """
         Add an item in the cache
         """
         self.holder = []
@@ -37,7 +37,7 @@ class FIFOCache(BaseCaching):
         """
         Get an item by key
         """
-        if key is None or not key in self.cache_data:
+        if key is None or key not in self.cache_data:
             return None
         else:
             for key in self.cache_data:
